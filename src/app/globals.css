@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+:root {
+  --background: #070b18;
+  --foreground: #eef2ff;
+  --panel: #111827;
+  --panel-border: rgba(94, 234, 212, 0.22);
+  --accent: #14b8a6;
+  --accent-2: #f97316;
+  --accent-3: #38bdf8;
+  --accent-4: #f43f5e;
+  --accent-soft: rgba(20, 184, 166, 0.18);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(20, 184, 166, 0.22), transparent 55%),
+    radial-gradient(900px 500px at 95% 5%, rgba(249, 115, 22, 0.16), transparent 50%),
+    radial-gradient(800px 500px at 70% 100%, rgba(56, 189, 248, 0.14), transparent 45%),
+    var(--background);
+  background-attachment: fixed;
+  color: var(--foreground);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: rgba(249, 115, 22, 0.35);
+  color: #fff7ed;
+}
+
+:focus-visible {
+  outline: 2px solid rgba(45, 212, 191, 0.85);
+  outline-offset: 2px;
+}
+
+pre,
+code {
+  font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+@keyframes float-orb {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-18px) scale(1.05);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-float-orb {
+  animation: float-orb 8s ease-in-out infinite;
+}
+
+.animate-float-orb-delay {
+  animation: float-orb 10s ease-in-out infinite 1.2s;
+}
+
+.animate-shimmer-text {
+  background-size: 200% auto;
+  animation: shimmer 4s linear infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3.5s ease-in-out infinite;
+}
+
+.gradient-border {
+  position: relative;
+  background:
+    linear-gradient(var(--panel), var(--panel)) padding-box,
+    linear-gradient(135deg, #14b8a6, #38bdf8, #f97316, #f43f5e) border-box;
+  border: 1px solid transparent;
+}
+
+.glass-panel {
+  background: linear-gradient(
+    160deg,
+    rgba(15, 23, 42, 0.92),
+    rgba(17, 24, 39, 0.78)
+  );
+  backdrop-filter: blur(16px);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 24px 60px rgba(2, 6, 23, 0.55);
+}
